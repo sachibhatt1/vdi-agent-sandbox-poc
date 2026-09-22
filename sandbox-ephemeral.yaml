@@ -1,0 +1,15 @@
+apiVersion: agents.k8s.io/v1alpha1
+kind: Sandbox
+metadata:
+  name: sandbox-ephemeral
+spec:
+  operatingMode: Running
+  template:
+    metadata:
+      labels:
+        sandbox: sandbox-ephemeral
+    spec:
+      containers:
+        - name: agent
+          image: local/agent-ephemeral:latest
+          imagePullPolicy: Never
